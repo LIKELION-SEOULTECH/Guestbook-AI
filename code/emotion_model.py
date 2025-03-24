@@ -68,7 +68,6 @@ tokenizer = get_tokenizer()
 tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower = False)
 
 # BERTDataset : 각 데이터가 BERT 모델의 입력으로 들어갈 수 있도록 tokenization, int encoding, padding하는 함수
-# 출처 : https://github.com/SKTBrain/KoBERT/blob/master/scripts/NSMC/naver_review_classifications_pytorch_kobert.ipynb
 
 class BERTDataset(Dataset):
     def __init__(self, dataset, sent_idx, label_idx, bert_tokenizer, vocab, max_len, pad, pair):
@@ -86,7 +85,7 @@ class BERTDataset(Dataset):
     def __len__(self):
         return (len(self.labels))
     
-# parameter 값 출처 : https://github.com/SKTBrain/KoBERT/blob/master/scripts/NSMC/naver_review_classifications_pytorch_kobert.ipynb
+# Parameters
 max_len = 64
 batch_size = 64
 warmup_ratio = 0.1
@@ -102,8 +101,6 @@ data_test = BERTDataset(dataset_test, 0, 1, tok, vocab, max_len, True, False)
 # torch 형식의 dataset을 만들어주면서, 입력 데이터셋의 전처리
 train_dataloader = torch.utils.data.DataLoader(data_train, batch_size = batch_size, num_workers = 5)
 test_dataloader = torch.utils.data.DataLoader(data_test, batch_size = batch_size, num_workers = 5)
-
-# KoBERT 오픈소스 내 예제코드 : https://github.com/SKTBrain/KoBERT/blob/master/scripts/NSMC/naver_review_classifications_pytorch_kobert.ipynb
 class BERTClassifier(nn.Module):
     def __init__(self,
                  bert,
@@ -158,7 +155,6 @@ def calc_accuracy(X,Y):
     train_acc = (max_indices == Y).sum().data.cpu().numpy()/max_indices.size()[0]
     return train_acc
     
-# KoBERT 오픈소스 내 예제코드 : https://github.com/SKTBrain/KoBERT/blob/master/scripts/NSMC/naver_review_classifications_pytorch_kobert.ipynb
 train_history = []
 test_history = []
 loss_history = []
@@ -203,7 +199,6 @@ for e in range(num_epochs):
     test_history.append(test_acc / (batch_id+1))
     
 # predict : 학습 모델을 활용하여 다중 분류된 클래스를 출력해주는 함수
-# 코드 출처 : https://hoit1302.tistory.com/159
 
 def predict(predict_sentence): # input = 감정분류하고자 하는 sentence
 
@@ -278,6 +273,3 @@ torch.onnx.export(
 )
 
 print(f"ONNX 모델이 저장되었습니다: {onnx_model_path}")
-
-
-
