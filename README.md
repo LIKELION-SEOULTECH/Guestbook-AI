@@ -1,7 +1,8 @@
 # Guestbook-AI
 
-# 해당 프로젝트에서 사용한 감정 모델 (kobert_model.onnx)
+## 해당 프로젝트에서 사용한 감정 모델 (kobert_model.onnx)
 
+#### 데이터 분포
 
 |count|Emotion|
 |----|-----|
@@ -13,7 +14,10 @@
 |happiness|4548|
 |disgust|2321|
 
-- 데이터 예시
+
+##### 총 데이터 수 : 5차년도(2차) 19,374건
+
+#### 데이터 예시
 
 ||Sentence	|Emotion|
 |--|---|--|
@@ -31,8 +35,8 @@
 -----
 
 
-## 다른 모델 
-### 1. emotion_model.onnx
+### 다른 모델 
+#### 1. emotion_model.onnx
 - 데이터 분포
   
 |count|Emotion|
@@ -56,8 +60,8 @@
 
 * 데이터 출처 : https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=86
 
-## 다른 모델 
-### 2. emotion_model_include_neutral.onnx
+### 다른 모델 
+#### 2. emotion_model_include_neutral.onnx
 이 모델은 데이터 수가 많지 않고 말투가 커뮤니티의 성격이 짙어 일반적인 구어체에 제대로 된 성능을 보이지 못한다.
 - 데이터 분포
   
