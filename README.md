@@ -1,22 +1,23 @@
-![image](https://github.com/user-attachments/assets/9e58d081-6e43-4dc9-8390-bd8f7c1836cc)![image](https://github.com/user-attachments/assets/257baa8f-0748-445f-ace3-cbeaa05ce152)# Guestbook-AI
+# Guestbook-AI
 
-# 프로젝트에서 사용한 감정 모델 (kobert_model.onnx)
+# 해당 프로젝트에서 사용한 감정 모델 (kobert_model.onnx)
 
-happiness, angry, disgust, fear, neutral, sadness, surprise
+
 |count|Emotion|
 |----|-----|
-|공포|1386|
-|놀람|1755|
-|분노|3263|
-|슬픔|4548|
-|중립|3253|
-|행복|4548|
-|혐오|2321|
+|fear|1386|
+|surprise|1755|
+|angry|3263|
+|sadness|4548|
+|neutral|3253|
+|happiness|4548|
+|disgust|2321|
 
 - 데이터 예시
+
 ||Sentence	|Emotion|
 |--|---|--|
-|0|	헐! 나 이벤트에 당첨 됐어.	|분노|
+|0|	헐! 나 이벤트에 당첨 됐어.	|happiness|
 |1|	이번 달에 또 급여가 깎였어! 물가는 오르는데 월급만 자꾸 깎이니까 너무 화가 나....	|happiness|
 |2|	내가 좋아하는 인플루언서가 이벤트를 하더라고. 그래서 그냥 신청 한번 해봤지. |happiness|
 |3|	한 명 뽑는 거였는데, 그게 바로 내가 된 거야.	|happiness|
@@ -28,7 +29,10 @@ happiness, angry, disgust, fear, neutral, sadness, surprise
 
 
 -----
-# 다른 모델 (emotion_model.onnx)
+
+
+## 다른 모델 
+### 1. emotion_model.onnx
 - 데이터 분포
   
 |count|Emotion|
@@ -52,7 +56,8 @@ happiness, angry, disgust, fear, neutral, sadness, surprise
 
 * 데이터 출처 : https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=86
 
-# 다른 모델 (emotion_model_include_neutral.onnx)
+## 다른 모델 
+### 2. emotion_model_include_neutral.onnx
 이 모델은 데이터 수가 많지 않고 말투가 커뮤니티의 성격이 짙어 일반적인 구어체에 제대로 된 성능을 보이지 못한다.
 - 데이터 분포
   
